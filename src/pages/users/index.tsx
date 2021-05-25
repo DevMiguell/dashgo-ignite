@@ -1,4 +1,5 @@
 import { Box, Button, Checkbox, Flex, Heading, Icon, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpointValue } from "@chakra-ui/react";
+import Link from "next/link";
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
@@ -21,15 +22,17 @@ export default function UserList() {
           <Flex mb="8" justify="space-between" align="center">
             <Heading size="lg" fontWeight="normal">Usuários</Heading>
 
-            <Button
-              as="a"
-              size="sm"
-              fontSize="sm"
-              colorScheme="pink"
-              leftIcon={<Icon as={RiAddLine} fontSize="20" />}
-            >
-              Criar novo
+            <Link href="/users/create" passHref prefetch>
+              <Button
+                as="a"
+                size="sm"
+                fontSize="sm"
+                colorScheme="pink"
+                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+              >
+                Criar novo
             </Button>
+            </Link>
           </Flex>
 
           <Table colorScheme="whiteAlpha">
@@ -106,7 +109,7 @@ export default function UserList() {
                     fontSize="sm"
                     colorScheme="purple"
                     leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
-                    >
+                  >
                     {isWideVersion && "Editar"}
                   </Button>
                 </Td>
